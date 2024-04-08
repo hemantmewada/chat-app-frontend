@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "proxy": "https://chat-app-frontend-topaz.vercel.app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
