@@ -14,10 +14,6 @@ export const SocketProvider = ({ children }) => {
     if (authUser) {
       const socket = io(config.VITE_BASE_URI, {
         withCredentials: true,
-        extraHeaders: {
-          Authorization: token,
-          "Access-Control-Allow-Origin": "*",
-        },
         query: {
           userId: authUser._id,
         },
