@@ -8,10 +8,16 @@ const SocketContext = createContext();
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
+  const { token } = useAuth();
   const { authUser } = useAuth();
   useEffect(() => {
     if (authUser) {
       const socket = io(config.VITE_BASE_URI, {
+        withCredentials: true,
+        extraHeaders: {
+          Authorization: token,
+          "Access-Control-Allow-Origin": "*",
+        },
         query: {
           userId: authUser._id,
         },
