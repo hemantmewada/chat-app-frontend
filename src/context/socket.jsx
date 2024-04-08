@@ -11,7 +11,7 @@ export const SocketProvider = ({ children }) => {
   const { authUser } = useAuth();
   useEffect(() => {
     if (authUser) {
-      const socket = io("https://chat-app-backend-three-ivory.vercel.app", {
+      const socket = io("http://localhost:3001", {
         query: {
           userId: authUser._id,
         },
